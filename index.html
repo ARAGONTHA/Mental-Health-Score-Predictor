@@ -14,6 +14,7 @@
 <div class="bg-glow bg-glow-a" aria-hidden="true"></div>
 <div class="bg-glow bg-glow-b" aria-hidden="true"></div>
 <div class="bg-grid" aria-hidden="true"></div>
+<p id="sr-status" class="sr-only" aria-live="polite" aria-atomic="true"></p>
 
 <div class="app">
 
@@ -34,7 +35,7 @@
         <p class="subtitle">See how your habits, screen time and stress relate to wellbeing. A model estimate, not a diagnosis.</p>
       </div>
 
-      <div class="result-card" aria-live="polite">
+      <div class="result-card" id="result-card" aria-live="polite">
         <div class="result-head">
           <span class="result-title"><span class="live-dot"></span>Predicted score</span>
           <span class="result-scale">0 – 10</span>
@@ -54,7 +55,7 @@
           <div class="state state-loading" id="state-loading" hidden>
             <div class="pulse-ring"></div>
             <p class="loading-label">Analyzing…</p>
-            <p class="loading-copy">Running your habits through the model.</p>
+            <p class="loading-copy" id="loading-copy">Running your habits through the model.</p>
           </div>
 
           <div class="state state-result" id="state-result" hidden>
