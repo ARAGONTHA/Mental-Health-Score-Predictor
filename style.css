@@ -254,7 +254,11 @@ body {
   justify-content: center;
 }
 
-.state { width: 100%; display: flex; flex-direction: column; align-items: center; }
+.state { width: 100%; display: none; flex-direction: column; align-items: center; }
+.result-inner[data-state="idle"]    .state-idle,
+.result-inner[data-state="loading"] .state-loading,
+.result-inner[data-state="result"]  .state-result,
+.result-inner[data-state="error"]   .state-error { display: flex; }
 
 /* gauge */
 .gauge {

@@ -246,8 +246,10 @@
   // UI state switching
   // ---------------------------------------------------------
   function showState(name) {
+    const inner = $("result-inner");
+    inner.dataset.state = name;
     Object.keys(states).forEach((key) => { states[key].hidden = key !== name; });
-    $("result-inner").setAttribute("aria-busy", name === "loading" ? "true" : "false");
+    inner.setAttribute("aria-busy", name === "loading" ? "true" : "false");
   }
 
   function setSubmitting(isSubmitting) {
