@@ -13,7 +13,7 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://mental-health-score-predictor-1-md35.onrender.com"
+                "https://mental-health-score-predictor-1-171r.onrender.com"
     ],
     allow_credentials=False,
     allow_methods=["GET", "POST", "OPTIONS"],
