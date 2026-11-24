@@ -6,91 +6,177 @@
 <title>Mental Health Signal — Student Wellness Analytics</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=5" />
 </head>
 <body>
 
+<!-- Ambient background -->
 <div class="bg-glow bg-glow-a" aria-hidden="true"></div>
 <div class="bg-glow bg-glow-b" aria-hidden="true"></div>
+<div class="bg-glow bg-glow-c" aria-hidden="true"></div>
 <div class="bg-grid" aria-hidden="true"></div>
+<svg class="bg-head" viewBox="0 0 200 360" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="headFill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8B5CFF" stop-opacity="0.75"/>
+      <stop offset="60%" stop-color="#4F46E5" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#2B2A9E" stop-opacity="0.15"/>
+    </linearGradient>
+  </defs>
+  <path d="M0 30 C70 0 150 30 158 100 C162 130 176 150 190 175 C194 182 188 186 182 188 C186 196 184 204 176 206 C180 214 176 222 168 224 C170 236 160 246 150 248 C148 262 150 276 156 292 L0 330 Z" fill="url(#headFill)"/>
+  <g fill="none" stroke="#B9A6FF" stroke-opacity="0.35" stroke-width="1.2" stroke-linecap="round">
+    <path d="M10 60 C50 40 110 52 130 92"/>
+    <path d="M6 100 C46 82 100 92 122 128"/>
+    <path d="M14 140 C50 126 96 134 112 160"/>
+    <path d="M40 70 C52 92 48 118 60 140"/>
+    <path d="M84 62 C92 84 88 104 100 124"/>
+  </g>
+</svg>
+<svg class="bg-wave" viewBox="0 0 1600 220" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="waveFill" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2D5BFF" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#8B3DFF" stop-opacity="0.38"/>
+    </linearGradient>
+  </defs>
+  <path d="M0 150 C300 60 520 190 820 130 C1100 74 1320 60 1600 120 L1600 220 L0 220 Z" fill="url(#waveFill)"/>
+  <path d="M0 150 C300 60 520 190 820 130 C1100 74 1320 60 1600 120" fill="none" stroke="#7C8CFF" stroke-opacity="0.35" stroke-width="1.5"/>
+</svg>
 <p id="sr-status" class="sr-only" aria-live="polite" aria-atomic="true"></p>
 
 <div class="app">
 
-  <!-- LEFT: BRAND + RESULT -->
-  <aside class="side">
-    <div class="side-inner">
-
-      <div class="brand">
+  <!-- TOP NAVIGATION -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <a class="brand" href="#" aria-label="Signal home">
         <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg>
+          <svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="url(#logoGrad)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <defs>
+              <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#FF6FD8"/>
+                <stop offset="55%" stop-color="#9A7CFF"/>
+                <stop offset="100%" stop-color="#22D3EE"/>
+              </linearGradient>
+            </defs>
+            <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/>
+            <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/>
+            <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/>
+            <path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/>
+            <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/>
+            <path d="M3.477 10.896a4 4 0 0 1 .585-.396"/>
+            <path d="M19.938 10.5a4 4 0 0 1 .585.396"/>
+            <path d="M6 18a4 4 0 0 1-1.967-.516"/>
+            <path d="M19.967 17.484A4 4 0 0 1 18 18"/>
+          </svg>
         </span>
         <span class="brand-name">Signal<span class="brand-dot">.</span></span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <button type="button" class="nav-link is-active" aria-current="page">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg>
+          Mental Health
+        </button>
+        <button type="button" class="nav-link">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          About
+        </button>
+        <button type="button" class="nav-link">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+          Tips
+        </button>
+      </nav>
+    </div>
+
+    <p class="priority">
+      <span class="priority-dot" aria-hidden="true"></span>
+      Your Wellness, Our Priority
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+    </p>
+  </header>
+
+  <!-- LEFT: INTRO + RESULT -->
+  <aside class="side">
+
+    <div class="intro">
+      <span class="eyebrow">Student Wellness Analytics</span>
+      <h1 class="title">Mental Health <span class="grad">Signal</span></h1>
+      <p class="subtitle">See how your habits, screen time and stress relate to wellbeing. A model estimate, not a diagnosis.</p>
+    </div>
+
+    <div class="result-card" id="result-card" aria-live="polite">
+      <div class="result-head">
+        <span class="result-title"><span class="live-dot"></span>Predicted score</span>
+        <span class="result-scale">
+          0 – 10
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        </span>
       </div>
 
-      <div class="intro">
-        <span class="eyebrow">Student Wellness Analytics</span>
-        <h1 class="title">Mental Health <span class="grad">Signal</span></h1>
-        <p class="subtitle">See how your habits, screen time and stress relate to wellbeing. A model estimate, not a diagnosis.</p>
-      </div>
+      <div class="result-inner" id="result-inner" data-state="idle">
 
-      <div class="result-card" id="result-card" aria-live="polite">
-        <div class="result-head">
-          <span class="result-title"><span class="live-dot"></span>Predicted score</span>
-          <span class="result-scale">0 – 10</span>
+        <div class="state state-idle" id="state-idle">
+          <svg class="gauge gauge-idle" viewBox="0 0 240 160" aria-hidden="true">
+            <path class="gauge-track" d="M 30 140 A 100 100 0 0 1 210 140" />
+            <g class="gauge-ticks"></g>
+          </svg>
+          <p class="idle-label">Waiting for input</p>
+          <p class="idle-copy">Fill in the form and submit to see your score.</p>
         </div>
 
-        <div class="result-inner" id="result-inner" data-state="idle">
-
-          <div class="state state-idle" id="state-idle">
-            <svg class="gauge gauge-idle" viewBox="0 0 240 160" aria-hidden="true">
-              <path class="gauge-track" d="M 30 140 A 100 100 0 0 1 210 140" />
-              <g class="gauge-ticks"></g>
-            </svg>
-            <p class="idle-label">Waiting for input</p>
-            <p class="idle-copy">Fill in the form and submit to see your score.</p>
-          </div>
-
-          <div class="state state-loading" id="state-loading" hidden>
-            <div class="pulse-ring"></div>
-            <p class="loading-label">Analyzing…</p>
-            <p class="loading-copy" id="loading-copy">Running your habits through the model.</p>
-          </div>
-
-          <div class="state state-result" id="state-result" hidden>
-            <svg class="gauge gauge-result" viewBox="0 0 240 160" aria-hidden="true">
-              <defs>
-                <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#FF6B8A"/>
-                  <stop offset="50%" stop-color="#FFC857"/>
-                  <stop offset="100%" stop-color="#2DE1B0"/>
-                </linearGradient>
-              </defs>
-              <path class="gauge-track" d="M 30 140 A 100 100 0 0 1 210 140" />
-              <path class="gauge-fill" id="gauge-fill" d="M 30 140 A 100 100 0 0 1 210 140" />
-              <g class="gauge-ticks"></g>
-            </svg>
-            <div class="score-readout">
-              <span class="score-number" id="score-number">0.0</span>
-              <span class="score-max">/10</span>
-            </div>
-            <p class="score-band" id="score-band">—</p>
-            <p class="score-context" id="score-context"></p>
-            <button type="button" class="reset-btn" id="reset-btn">New assessment</button>
-          </div>
-
-          <div class="state state-error" id="state-error" hidden>
-            <div class="error-icon" aria-hidden="true">!</div>
-            <p class="error-label" id="error-label"></p>
-            <p class="error-copy" id="error-copy"></p>
-            <button type="button" class="reset-btn" id="error-retry-btn">Try again</button>
-          </div>
-
+        <div class="state state-loading" id="state-loading" hidden>
+          <div class="pulse-ring"></div>
+          <p class="loading-label">Analyzing…</p>
+          <p class="loading-copy" id="loading-copy">Running your habits through the model.</p>
         </div>
-      </div>
 
-      <p class="disclaimer">Informational only, not a clinical assessment. If you're struggling, please talk to someone you trust.</p>
+        <div class="state state-result" id="state-result" hidden>
+          <svg class="gauge gauge-result" viewBox="0 0 240 160" aria-hidden="true">
+            <defs>
+              <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#FF4D8D"/>
+                <stop offset="28%" stop-color="#FF8A3D"/>
+                <stop offset="52%" stop-color="#FFD23F"/>
+                <stop offset="78%" stop-color="#9BE04A"/>
+                <stop offset="100%" stop-color="#2DE1B0"/>
+              </linearGradient>
+            </defs>
+            <path class="gauge-track" d="M 30 140 A 100 100 0 0 1 210 140" />
+            <path class="gauge-fill" id="gauge-fill" d="M 30 140 A 100 100 0 0 1 210 140" />
+            <g class="gauge-ticks"></g>
+          </svg>
+          <div class="score-readout">
+            <span class="score-number" id="score-number">0.0</span>
+            <span class="score-max">/10</span>
+          </div>
+          <p class="score-band" id="score-band">—</p>
+          <p class="score-context" id="score-context"></p>
+          <button type="button" class="reset-btn" id="reset-btn">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg>
+            New assessment
+          </button>
+          <button type="button" class="tip-card" id="tip-card">
+            <span class="tip-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+            </span>
+            <span class="tip-text">
+              <strong>Try again</strong>
+              <span>Check back anytime to see how things change.</span>
+            </span>
+            <svg class="tip-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </div>
+
+        <div class="state state-error" id="state-error" hidden>
+          <div class="error-icon" aria-hidden="true">!</div>
+          <p class="error-label" id="error-label"></p>
+          <p class="error-copy" id="error-copy"></p>
+          <button type="button" class="reset-btn" id="error-retry-btn">Try again</button>
+        </div>
+
+      </div>
     </div>
   </aside>
 
@@ -98,168 +184,181 @@
   <main class="main">
     <form id="predict-form" novalidate>
 
-      <section class="card">
-        <header class="card-head">
-          <span class="step">01</span>
-          <div>
-            <h2>Profile</h2>
-            <p>Basic details about you.</p>
-          </div>
-        </header>
-        <div class="grid grid-3">
-          <div class="field">
-            <label for="age">Age</label>
-            <input type="number" id="age" name="age" min="10" max="100" step="1" required placeholder="e.g. 21" />
-            <span class="hint">10–100</span>
-            <span class="error-msg" data-for="age"></span>
-          </div>
-          <div class="field">
-            <label for="gender">Gender</label>
-            <select id="gender" name="gender" required>
-              <option value="" disabled selected hidden>Select</option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-            </select>
-            <span class="error-msg" data-for="gender"></span>
-          </div>
-          <div class="field">
-            <label for="country">Country</label>
-            <input type="text" id="country" name="country" list="country-list" required placeholder="e.g. India" autocomplete="off" />
-            <datalist id="country-list">
-              <option value="India"></option>
-              <option value="USA"></option>
-              <option value="Canada"></option>
-              <option value="Australia"></option>
-              <option value="UK"></option>
-              <option value="Germany"></option>
-              <option value="Mexico"></option>
-              <option value="Turkey"></option>
-              <option value="France"></option>
-            </datalist>
-            <span class="hint">Not listed? Type it anyway.</span>
-            <span class="error-msg" data-for="country"></span>
-          </div>
-        </div>
-      </section>
+      <div class="cards">
 
-      <section class="card">
-        <header class="card-head">
-          <span class="step">02</span>
-          <div>
-            <h2>Academic &amp; Digital Habits</h2>
-            <p>How you study and use your phone.</p>
-          </div>
-        </header>
-        <div class="grid grid-2">
-          <div class="field">
-            <label for="academic_level">Academic level</label>
-            <select id="academic_level" name="academic_level" required>
-              <option value="" disabled selected hidden>Select</option>
-              <option value="High School">High School</option>
-              <option value="Undergraduate">Undergraduate</option>
-              <option value="Graduate">Graduate</option>
-            </select>
-            <span class="error-msg" data-for="academic_level"></span>
-          </div>
-          <div class="field">
-            <label for="most_used_platform">Most-used platform</label>
-            <select id="most_used_platform" name="most_used_platform" required>
-              <option value="" disabled selected hidden>Select</option>
-              <option value="Facebook">Facebook</option>
-              <option value="Instagram">Instagram</option>
-              <option value="Snapchat">Snapchat</option>
-              <option value="Twitter">Twitter</option>
-              <option value="YouTube">YouTube</option>
-              <option value="TikTok">TikTok</option>
-              <option value="LinkedIn">LinkedIn</option>
-              <option value="LINE">LINE</option>
-              <option value="KakaoTalk">KakaoTalk</option>
-              <option value="VKontakte">VKontakte</option>
-              <option value="WhatsApp">WhatsApp</option>
-              <option value="WeChat">WeChat</option>
-            </select>
-            <span class="error-msg" data-for="most_used_platform"></span>
-          </div>
-          <div class="field">
-            <label for="purpose_of_use">Primary purpose</label>
-            <select id="purpose_of_use" name="purpose_of_use" required>
-              <option value="" disabled selected hidden>Select</option>
-              <option value="Networking">Networking</option>
-              <option value="Education">Education</option>
-              <option value="Entertainment">Entertainment</option>
-              <option value="News">News</option>
-            </select>
-            <span class="error-msg" data-for="purpose_of_use"></span>
-          </div>
-          <div class="field">
-            <label for="avg_daily_usage_hours">Avg. daily screen time</label>
-            <div class="unit-input">
-              <input type="number" id="avg_daily_usage_hours" name="avg_daily_usage_hours" min="0" max="24" step="0.1" required placeholder="0.0" />
-              <span class="unit">hrs</span>
+        <section class="card">
+          <header class="card-head">
+            <span class="step">01</span>
+            <div class="card-titles">
+              <h2>Profile</h2>
+              <p>Basic details about you.</p>
             </div>
-            <span class="error-msg" data-for="avg_daily_usage_hours"></span>
+            <svg class="card-icon" viewBox="0 0 24 24" width="26" height="26" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </header>
+          <div class="grid grid-3">
+            <div class="field">
+              <label for="age">Age</label>
+              <input type="number" id="age" name="age" min="10" max="100" step="1" required placeholder="e.g. 21" />
+              <span class="hint">10–100</span>
+              <span class="error-msg" data-for="age"></span>
+            </div>
+            <div class="field">
+              <label for="gender">Gender</label>
+              <select id="gender" name="gender" required>
+                <option value="" disabled selected hidden>Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+              <span class="error-msg" data-for="gender"></span>
+            </div>
+            <div class="field">
+              <label for="country">Country</label>
+              <input type="text" id="country" name="country" list="country-list" required placeholder="e.g. India" autocomplete="off" />
+              <datalist id="country-list">
+                <option value="India"></option>
+                <option value="USA"></option>
+                <option value="Canada"></option>
+                <option value="Australia"></option>
+                <option value="UK"></option>
+                <option value="Germany"></option>
+                <option value="Mexico"></option>
+                <option value="Turkey"></option>
+                <option value="France"></option>
+              </datalist>
+              <span class="hint">Not listed? Type it anyway.</span>
+              <span class="error-msg" data-for="country"></span>
+            </div>
           </div>
-          <div class="field">
-            <label for="daily_unlocks">Daily phone unlocks</label>
-            <input type="number" id="daily_unlocks" name="daily_unlocks" min="0" step="1" required placeholder="e.g. 60" />
-            <span class="error-msg" data-for="daily_unlocks"></span>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="card">
-        <header class="card-head">
-          <span class="step">03</span>
-          <div>
-            <h2>Lifestyle &amp; Stress</h2>
-            <p>Your daily rhythm and how you feel.</p>
-          </div>
-        </header>
-        <div class="grid grid-3">
-          <div class="field">
-            <label for="study_hours">Study hours / day</label>
-            <div class="unit-input">
-              <input type="number" id="study_hours" name="study_hours" min="0" max="24" step="0.1" required placeholder="0.0" />
-              <span class="unit">hrs</span>
+        <section class="card">
+          <header class="card-head">
+            <span class="step">02</span>
+            <div class="card-titles">
+              <h2>Academic &amp; Digital Habits</h2>
+              <p>How you study and use your phone.</p>
             </div>
-            <span class="error-msg" data-for="study_hours"></span>
-          </div>
-          <div class="field">
-            <label for="physical_activity_hours">Physical activity / day</label>
-            <div class="unit-input">
-              <input type="number" id="physical_activity_hours" name="physical_activity_hours" min="0" max="24" step="0.1" required placeholder="0.0" />
-              <span class="unit">hrs</span>
+            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6" fill="none"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+          </header>
+          <div class="grid grid-2">
+            <div class="field">
+              <label for="academic_level">Academic level</label>
+              <select id="academic_level" name="academic_level" required>
+                <option value="" disabled selected hidden>Select</option>
+                <option value="High School">High School</option>
+                <option value="Undergraduate">Undergraduate</option>
+                <option value="Graduate">Graduate</option>
+              </select>
+              <span class="error-msg" data-for="academic_level"></span>
             </div>
-            <span class="error-msg" data-for="physical_activity_hours"></span>
-          </div>
-          <div class="field">
-            <label for="sleep_hours_per_night">Sleep / night</label>
-            <div class="unit-input">
-              <input type="number" id="sleep_hours_per_night" name="sleep_hours_per_night" min="0" max="24" step="0.1" required placeholder="0.0" />
-              <span class="unit">hrs</span>
+            <div class="field">
+              <label for="most_used_platform">Most-used platform</label>
+              <select id="most_used_platform" name="most_used_platform" required>
+                <option value="" disabled selected hidden>Select</option>
+                <option value="Facebook">Facebook</option>
+                <option value="Instagram">Instagram</option>
+                <option value="Snapchat">Snapchat</option>
+                <option value="Twitter">Twitter</option>
+                <option value="YouTube">YouTube</option>
+                <option value="TikTok">TikTok</option>
+                <option value="LinkedIn">LinkedIn</option>
+                <option value="LINE">LINE</option>
+                <option value="KakaoTalk">KakaoTalk</option>
+                <option value="VKontakte">VKontakte</option>
+                <option value="WhatsApp">WhatsApp</option>
+                <option value="WeChat">WeChat</option>
+              </select>
+              <span class="error-msg" data-for="most_used_platform"></span>
             </div>
-            <span class="error-msg" data-for="sleep_hours_per_night"></span>
-          </div>
-          <div class="field field-span">
-            <label for="stress_level">Perceived stress level</label>
-            <div class="segmented" id="stress_level_group" data-name="stress_level">
-              <button type="button" class="seg-btn" data-value="Low">Low</button>
-              <button type="button" class="seg-btn" data-value="Medium">Medium</button>
-              <button type="button" class="seg-btn" data-value="High">High</button>
-              <button type="button" class="seg-btn" data-value="Very High">Very High</button>
+            <div class="field">
+              <label for="purpose_of_use">Primary purpose</label>
+              <select id="purpose_of_use" name="purpose_of_use" required>
+                <option value="" disabled selected hidden>Select</option>
+                <option value="Networking">Networking</option>
+                <option value="Education">Education</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="News">News</option>
+              </select>
+              <span class="error-msg" data-for="purpose_of_use"></span>
             </div>
-            <input type="hidden" id="stress_level" name="stress_level" required />
-            <span class="error-msg" data-for="stress_level"></span>
+            <div class="field">
+              <label for="avg_daily_usage_hours">Avg. daily screen time</label>
+              <div class="unit-input">
+                <input type="number" id="avg_daily_usage_hours" name="avg_daily_usage_hours" min="0" max="24" step="0.1" required placeholder="0.0" />
+                <span class="unit">hrs</span>
+              </div>
+              <span class="error-msg" data-for="avg_daily_usage_hours"></span>
+            </div>
+            <div class="field">
+              <label for="daily_unlocks">Daily phone unlocks</label>
+              <input type="number" id="daily_unlocks" name="daily_unlocks" min="0" step="1" required placeholder="e.g. 60" />
+              <span class="error-msg" data-for="daily_unlocks"></span>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <section class="card">
+          <header class="card-head">
+            <span class="step">03</span>
+            <div class="card-titles">
+              <h2>Lifestyle &amp; Stress</h2>
+              <p>Your daily rhythm and how you feel.</p>
+            </div>
+            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          </header>
+          <div class="grid grid-3">
+            <div class="field">
+              <label for="study_hours">Study hours / day</label>
+              <div class="unit-input">
+                <input type="number" id="study_hours" name="study_hours" min="0" max="24" step="0.1" required placeholder="0.0" />
+                <span class="unit">hrs</span>
+              </div>
+              <span class="error-msg" data-for="study_hours"></span>
+            </div>
+            <div class="field">
+              <label for="physical_activity_hours">Physical activity / day</label>
+              <div class="unit-input">
+                <input type="number" id="physical_activity_hours" name="physical_activity_hours" min="0" max="24" step="0.1" required placeholder="0.0" />
+                <span class="unit">hrs</span>
+              </div>
+              <span class="error-msg" data-for="physical_activity_hours"></span>
+            </div>
+            <div class="field">
+              <label for="sleep_hours_per_night">Sleep / night</label>
+              <div class="unit-input">
+                <input type="number" id="sleep_hours_per_night" name="sleep_hours_per_night" min="0" max="24" step="0.1" required placeholder="0.0" />
+                <span class="unit">hrs</span>
+              </div>
+              <span class="error-msg" data-for="sleep_hours_per_night"></span>
+            </div>
+            <div class="field field-span">
+              <label for="stress_level">Perceived stress level</label>
+              <div class="segmented" id="stress_level_group" data-name="stress_level">
+                <button type="button" class="seg-btn" data-value="Low">Low</button>
+                <button type="button" class="seg-btn" data-value="Medium">Medium</button>
+                <button type="button" class="seg-btn" data-value="High">High</button>
+                <button type="button" class="seg-btn" data-value="Very High">Very High</button>
+              </div>
+              <input type="hidden" id="stress_level" name="stress_level" required />
+              <span class="error-msg" data-for="stress_level"></span>
+            </div>
+          </div>
+        </section>
+
+      </div>
 
       <div class="form-footer">
-        <p class="form-note">All fields are required</p>
+        <div class="footer-note">
+          <p class="form-note">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4" fill="none"/></svg>
+            All fields are required
+          </p>
+          <p class="disclaimer">Informational only, not a clinical assessment. If you're struggling, please talk to someone you trust.</p>
+        </div>
         <button type="submit" class="submit-btn" id="submit-btn">
           <span class="btn-label">Read my signal</span>
           <span class="btn-spinner" aria-hidden="true"></span>
-          <svg class="btn-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <svg class="btn-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </button>
       </div>
 
@@ -268,6 +367,14 @@
 
 </div>
 
-<script src="script.js?v=5"></script>
+<script src="script.js?v=4"></script>
+<script>
+  // The "Try again" tip card is a second way to start a new assessment.
+  (function () {
+    var tip = document.getElementById("tip-card");
+    var reset = document.getElementById("reset-btn");
+    if (tip && reset) tip.addEventListener("click", function () { reset.click(); });
+  })();
+</script>
 </body>
 </html>
